@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Calculator</h2>
+
+            <form class="mx-auto max-w-lg rounded-lg border bg-gray-700">
+                <div class="flex flex-col gap-4 p-4 md:p-8">
+                    <div>
+                        <input type="text" disabled id="display"
+                            class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
+                    </div>
+                    <div>
+                        <button type="button" onclick="onRemove()"
+                            class="w-52 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">AC</button>
+                        <button type="button" onclick="onOperation('%')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">%</button>
+                        <button type="button" onclick="onOperation('/')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">÷</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="onNumPress('7')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">7</button>
+                        <button type="button" onclick="onNumPress('8')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">8</button>
+                        <button type="button" onclick="onNumPress('9')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">9</button>
+                        <button type="button" onclick="onOperation('x')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">x</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="onNumPress('4')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">4</button>
+                        <button type="button" onclick="onNumPress('5')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">5</button>
+                        <button type="button" onclick="onNumPress('6')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">6</button>
+                        <button type="button" onclick="onOperation('-')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">-</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="onNumPress('1')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">1</button>
+                        <button type="button" onclick="onNumPress('2')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">2</button>
+                        <button type="button" onclick="onNumPress('3')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">3</button>
+                        <button type="button" onclick="onOperation('+')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">+</button>
+                    </div>
+                    <div>
+                        <button type="button" onclick="onClear()"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">C</button>
+                        <button type="button" onclick="onNumPress('0')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">0</button>
+
+                        <button type="button" onclick="onNumPress('.')"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">.</button>
+                        <button type="button" onclick="onCalculate()"
+                            class="w-24 text-xl text-teal-500 borde bg-gray-900 hover:bg-gray-800 border-gray-800 font-medium rounded-lg px-5 py-2.5 text-center mr-2 mb-0 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">=</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        let num1 = ""
+let num2 = ""
+let operator = ""
+let count = 0;
+
+function onNumPress(value) {
+    if (count == 0) {
+        num1 += value
+        document.getElementById("display").value = num1
+    }
+    else {
+        num2 += value
+        document.getElementById("display").value = num1 + operator + num2
+    }
+}
+
+function onOperation(value) {
+    if (count == 0) {
+        if (value == 'x') {
+            operator = '*';
+        } else if (value == '%') {
+            operator = '%';
+        } else {
+            operator = value;
+        }
+        count = 1;
+        document.getElementById("display").value = num1 + operator;
+    }
+}
+
+
+
+function onClear() {
+    if (count == 0) {
+        num1 = num1.slice(0, -1)
+        document.getElementById("display").value = num1
+    }
+    else {
+        num2 = num2.slice(0, -1)
+        document.getElementById("display").value = num1 + operator + num2
+    }
+}
+
+function onRemove() {
+    num1 = ""
+    num2 = ""
+    operator = ""
+    count = 0
+    document.getElementById("display").value = ""
+}
+
+function onCalculate() {
+    let result;
+    switch (operator) {
+        case '+':
+            result = parseFloat(num1) + parseFloat(num2);
+            break;
+        case '-':
+            result = parseFloat(num1) - parseFloat(num2);
+            break;
+        case '*':
+            result = parseFloat(num1) * parseFloat(num2);
+            break;
+        case '/':
+            result = parseFloat(num1) / parseFloat(num2);
+            break;
+        case '%':
+            result = parseFloat(num1) % parseFloat(num2);
+            break;
+        default:
+            return;
+    }
+    document.getElementById("display").value = result
+    num1 = result.toString()
+    num2 = ""
+    operator = ""
+    count = 0
+}
+
+    </script>
+
+</body>
+
+</html>
